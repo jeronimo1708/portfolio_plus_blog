@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Jeronimo's Blogs
+{% endblock page_title %}
+
+{% block content %}
+    <div class="container text-center">
+        <div class="row main-row justify-content-center align-items-center">
+            <h1> My Blogs </h1>
+        </div> 
+        <div class="row main-row justify-content-center align-items-center">
+            <div class="list-group">
+                {% for blog in blogs %}
+                    {% include "my_blog/includes/blog_list_view.html" %}
+                {% endfor %}
+            </div>
+        </div>        
+    </div>
+{% endblock  %}

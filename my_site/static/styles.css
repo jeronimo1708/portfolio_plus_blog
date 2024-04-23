@@ -1,0 +1,56 @@
+/* body {
+    background-color: black;
+} */
+
+/* NAVBAR START */
+
+/* NAVBAR END */
+
+.remove-padding {
+    padding: 0;
+    margin: 0;
+} 
+
+/* Left col */
+
+
+.main-row {
+    margin: 0;
+}
+
+/* Left Side */
+
+.main-left-col {
+    position: sticky;
+    padding : 10% 0;  
+}
+
+/* .sticky-top {
+    padding: 0;
+} */
+
+.split-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.social-icons {
+    margin: 0;
+    padding-right: 35%;
+}
+
+/* Right Side */
+
+.main-right-col {
+    padding : 10% 2%;  
+}
+
+.nav > *{
+    --bs-nav-link-padding-x : 0;
+}
+
+.nav-button-dist {
+    padding-left: 43%;
+}
