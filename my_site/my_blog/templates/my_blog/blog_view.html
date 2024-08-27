@@ -13,5 +13,11 @@
         <div class="row main-row justify-content-center align-items-center">
             <p> {{ blog.content|linebreaks }} </p>
         </div> 
-    </div>
+    <form action="{% url "selected_blog_view" blog.slug %}" method="POST">
+        {% csrf_token %}
+        <div class="container text-center">
+            {% load crispy_forms_tags %}
+            {{ comment_form }}
+        </div>
+    </form>
 {% endblock  %}
