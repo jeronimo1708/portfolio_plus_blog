@@ -28,7 +28,10 @@ SECRET_KEY = "n9)(m458#v_l)csj175ap2loy-9bioel5-rypy!be4_2c&tj4@"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv("IS_DEV") else False
 
-ALLOWED_HOSTS = ["*"] 
+if DEBUG:
+    ALLOWED_HOSTS = ["127.0.0.1"]
+else:
+    ALLOWED_HOSTS = [""]
 
 # Application definition
 
@@ -47,7 +50,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -81,15 +84,22 @@ WSGI_APPLICATION = "my_site.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-
-DATABASES = {
-    "default": dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default="postgresql://localhost:5432/postgres",
-        conn_max_age=600,
-    )
-}
+# test
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "mydatabase",
+        }
+    }
+else:
+    DATABASES = {
+        "default": dj_database_url.config(
+            # Replace this value with your local database's connection string.
+            default="postgresql://localhost:5432/postgres",
+            conn_max_age=600,
+        )
+    }
 
 
 # Password validation
@@ -133,7 +143,7 @@ STATICFILES_DIRS = [
 ]
 
 if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
