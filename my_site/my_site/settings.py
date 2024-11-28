@@ -28,10 +28,7 @@ SECRET_KEY = "n9)(m458#v_l)csj175ap2loy-9bioel5-rypy!be4_2c&tj4@"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv("IS_DEV") else False
 
-if DEBUG:
-    ALLOWED_HOSTS = ["127.0.0.1"]
-else:
-    ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "jeronimodcosta.com"]
 
 # Application definition
 
