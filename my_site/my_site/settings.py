@@ -31,7 +31,7 @@ DEBUG = True if os.getenv("IS_DEV") else False
 if DEBUG:
     ALLOWED_HOSTS = ["127.0.0.1"]
 else:
-    ALLOWED_HOSTS = [""]
+    ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
